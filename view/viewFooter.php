@@ -1,6 +1,6 @@
 <?php
 class ViewFooter implements InterfaceView {
-    public function displayView(): string {
+    public function displayView(): ?string {
         ob_start();
 ?>
             <footer>

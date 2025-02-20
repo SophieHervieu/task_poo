@@ -11,7 +11,7 @@ class ViewCategory implements InterfaceView{
         return $this;
     }
 
-    public function displayView(): string {
+    public function displayView(): ?string {
         ob_start()
 ?>
 
@@ -21,7 +21,7 @@ class ViewCategory implements InterfaceView{
             <input type="text" name="name">
             <input type="submit" value="ajouter" name="submit">
         </form>
-        <?= $message ?>
+        <?php echo $this->getMessage() ?>
 
 <?php
         return ob_get_clean();

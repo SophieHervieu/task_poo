@@ -11,7 +11,7 @@ class ViewHeader implements InterfaceView {
         return $this;
     }
 
-    public function displayView(): string {
+    public function displayView(): ?string {
         ob_start()
 ?>
         <html lang="fr">

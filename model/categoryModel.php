@@ -39,11 +39,12 @@ class categoryModel extends AbstractModel{
         try {
             $bdd = $this->getBdd()->connexion();
             $name = $this->getName();
+            $id = $this->getId();
 
-            $requete = "UPDATE category SET name=? WHERE name=?";
+            $requete = "UPDATE category SET name=? WHERE id_category=?";
             $req = $bdd->prepare($requete);
             $req->bindParam(1, $name, PDO::PARAM_STR);
-            $req->bindParam(2, $name, PDO::PARAM_STR);
+            $req->bindParam(2, $id, PDO::PARAM_STR);
             $req->execute();
         } catch (Exception $e) {
             echo "Erreur" . $e->getMessage();
@@ -83,7 +84,7 @@ class categoryModel extends AbstractModel{
             $bdd = $this->getBdd()->connexion();
             $id = $this->getId();
 
-            $requete = "SELECT id_category, name FROM category WHERE name=?";
+            $requete = "SELECT id_category, name FROM category WHERE id_category=?";
             $req = $bdd->prepare($requete);
             $req->bindParam(1, $id, PDO::PARAM_STR);
             $req->execute();
@@ -94,7 +95,7 @@ class categoryModel extends AbstractModel{
         }
     }
 
-    function getCategoryByName(PDO $bdd, string $name): array|null|string {
+    function getCategoryByName(): array|null|string {
         try {
             $bdd = $this->getBdd()->connexion();
             $name = $this->getName();

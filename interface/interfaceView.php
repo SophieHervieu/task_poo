@@ -1,4 +1,4 @@
 <?php
 interface interfaceView{
-    public function displayView(): string;
+    public function displayView(): ?string;
 }
